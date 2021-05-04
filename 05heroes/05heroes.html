@@ -7,17 +7,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
     <title>Heroes</title>
 </head>
+<!-- 2-way data binding i.e sending data to and from script.js -->
 <body class="bg-dark text-light">
     <div class="container mt-4"  id="vapp">
         <h2 class="display-3">Single Hero</h2>
-        <select class="form-select">
-            <option v-model={{heroSelect}} selected value="">Choose A Super Hero</option>
+        <select v-model="heroSelect" class="form-select">
+            <!-- The directive v-model is used to send data to js fle -->
+            <option selected value="">Choose A Super Hero</option>
             <option >Hulk</option>
             <option >Iron Man</option>
             <option >Thor</option>
         </select>
         <h2 class="btn bg-warning mt-3">calling,{{ heroSelect}}</h2>
+
+        <h2 class="display-3">Avenger Team</h2>
+        <!-- multiple keyword is used to select multiple times -->
+        <select v-model="avengerSelect" multiple class="form-select">
+            <!-- The directive v-model is used to send data to js fle -->
+            <!-- Here the order of selction,deselection is taken care of -->
+            <option selected value="">Choose multiple Super Hero</option>
+            <!-- Multiple values be selected via pressing shift key -->
+            <option value="Iron Man">Iron Man</option>
+            <option value="Peter Parker">Spider Man</option>
+            <option value="Capt. America">Captain America</option>
+            <!-- value is the actual thing that gets passed to js file -->
+        </select>
+        <h2 class="btn bg-warning mt-3">A team,{{ avengerSelect}}</h2>
+
+        <h2 class="display-3">Bond Code</h2>
+        <select v-model="myDynamic" class="form-select">
+            <!-- The directive v-model is used to send data to js fle -->
+            <option selected value="">Choose Bond</option>
+            <option v-for="option in myBonds" :value="option.value">{{option.text}}</option>
+ 
+        </select>
+        <h2 class="btn bg-warning mt-3">Bond Code,{{myDynamic}}</h2>
+
     </div>
-    <script src="./script.js"></script>
 </body>
+<script src="./script.js"></script>
 </html>
