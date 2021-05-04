@@ -34,7 +34,8 @@ const App={
     computed:{
          finalBill(){
             //  (course,accumulator) would give an error
-            return this.holdMyItem.reduce((accumulator,course)=>Number(course.price)+accumulator,0) 
+            //there is 18% tax , so its added
+            return this.holdMyItem.reduce((accumulator,course)=>Number(course.price)+(0.18 * Number(course.price) )+ accumulator,0) 
          }
     },
     //computed is not actually a function , it the value

@@ -26,7 +26,7 @@
                         <p class="text-center bg-success">Price : {{course.price}}</p>
                         </div>
                         <div class="row">
-                        <a v-if="holdMyItem.indexOf(course)==-1" href="#" @click="addToHolder(course)" class="btn btn-primary">Add To Cart</a>
+                        <a v-if="holdMyItem.indexOf(course)==-1" href="#" @click="addToHolder(course)" class="btn btn-primary">Buy Course</a>
                         <a v-else href="#" @click="removeFromHolder(course)" class="btn mt-3 btn-primary">Remove from Cart</a>
                       </div>
                     </div>
