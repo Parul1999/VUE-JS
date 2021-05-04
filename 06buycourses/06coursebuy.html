@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+    <title>Course</title>
+</head>
+<body class="bg-dark text-light">
+    <div class="container mt-4 "  id="vapp">
+        <!-- Finalbill is treated as a number because computed delivers a number as o/p -->
+        <h2 class="bg-success text-center">Your Bill is: {{finalBill}}</h2>
+        <div class="row">
+            <!-- If there is a directive in an element we donot put another directive in the same directive -->
+            <!-- This is the best practice except for the case in loop , we put key for inhancement -->
+            <div class="col-md-12"> 
+            <div v-for="(course,index) in courseList" 
+            :key="course.id"
+            class="card mt-3 vapp" style="width:18rem;">
+                      <img :src="course.courseImage" class="card-img-top" alt="Japan">
+                      <div class="card-body">
+                        <h5 class="card-title text-dark">{{course.courseName}}</h5>
+                        <p class="card-text text-dark">{{course.subTitle}}</p>
+                        <div>
+                        <p class="text-center bg-success">Price : {{course.price}}</p>
+                        </div>
+                        <div class="row">
+                        <a v-if="holdMyItem.indexOf(course)==-1" href="#" @click="addToHolder(course)" class="btn btn-primary">Add To Cart</a>
+                        <a v-else href="#" @click="removeFromHolder(course)" class="btn mt-3 btn-primary">Remove from Cart</a>
+                      </div>
+                    </div>
+                    </div>         
+            </div>
+        </div>
+</div>
+</body>
+<script src="./script.js"></script>
+</html>
