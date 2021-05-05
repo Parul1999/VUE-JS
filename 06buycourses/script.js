@@ -52,10 +52,14 @@ const App={
        },
        removeFromHolder(course)
        {
-           this.holdMyItem.pop(course)
+        const index = this.holdMyItem.indexOf(course);
+        if (index > -1) {
+            this.holdMyItem.splice(index, 1);
+        }
        }
     }
 }
 //we dont use => in functions cuz we use this too, so it can create a mess
 
 Vue.createApp(App).mount('#vapp')
+
