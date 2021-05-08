@@ -1,5 +1,26 @@
 <template>
-<p>Icon</p>
+<main class="d-flex flex-column justify-content-center align-items-center bg-dark">
+<div class="container">
+ <div class="row justify-content-center mt-3">
+ <div class="col col-6">
+ <div class="text-center">
+ <div v-if="!winMessage">
+ <h1 class="text-info" v-show="isCross">
+Cross Turn
+ </h1>
+ <h1 class="text-info" v-show="!isCross">
+Circle Turn
+ </h1>
+ </div>
+ <div v-else>
+ <h1 class="text-warning">
+ {{winMessage}}
+ </h1>
+ </div>
+ </div>
+ </div>
+</div>
+</main>
 </template>
 
 <script>
