@@ -14,19 +14,20 @@ v-on:change="handleSlideChange"
 </main>
 </template>
 
+/*IMPORTANT : THE TABS AND SPACES CAN GIVE A ERROR , BECAUSE OF LINT DEPENDENCY IN PACKAGE.JSON , EITHER REMOVE THE DEPENDENCY OR KEEP AN EYE ON SPACES AND INTENDATION*/
+
 <script>
 import arrayOfWords from './utils/words'
 export default{
   name:'App',
-  data(){
-    return{
-    limit:0,
-    words:null
-    }
+      data(){
+            return{
+            limit:0,
+            words:null
+        }
   },
   methods:{
-    handleSlideChange(e)
-    {
+    handleSlideChange(e){
       this.limit=e.target.value
     },
     generateWords(){
