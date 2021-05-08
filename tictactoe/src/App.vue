@@ -27,14 +27,14 @@ export default {
     }
   },
   methods:{
-    showDialog:{
+    showDialog:(
       Swal.fire({
         icon:"info",
         title:"Game Over",
         text: `${this.winMessage}`
       })
-    }
-  }
+    )
+  },
   handleClick(itemNumber)
   {
     if(this.winMessage)
