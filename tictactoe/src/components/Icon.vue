@@ -1,30 +1,29 @@
 <template>
-<div>
-<i class="fa fa-circle fa-4x zoomIn text-primary" 
-v-if="iconname==='circle'"></i>
-<i class="fa fa-times fa-4x zoomIn text-info" 
-v-else-if="iconname==='cross'"/></i>
-<img src="../assets/logo.png" class="img-fluid-zoomIn"
-v-else-if="iconname==='empty'"
-/>
-</div>
+    <div>
+        <i class="fa fa-circle fa-4x zoomIn text-primary"
+        v-if="iconname === 'circle'"
+        ></i>
+        <i class="fa fa-times fa-4x zoomIn text-info"
+        v-else-if="iconname === 'cross'"
+        ></i>
+        <img src="../assets/logo.png" alt="" 
+        class="img-fluid zoomIn"
+        v-else-if="iconname === 'empty'"
+         />
+    </div>
 </template>
 
-//put required as a condition , as we havent handled  //the case user enter anything except , circle,       //cross, empty
 <script>
-export default{
-    props:{
+export default {
+    props: {
         iconname:{
-            type:String,
-            required:true
+            type: String,
+            required: true
         }
     }
-    name:'Icon'
 }
-
 </script>
 
-++++++++++++++++++  component style  +++++++++++++++++++++++++
 
 <style>
 img {
@@ -47,5 +46,3 @@ img {
   animation-duration: 1s;
 }
 </style>
-
-++++++++++++++++++  component style  +++++++++++++++++++++++++
