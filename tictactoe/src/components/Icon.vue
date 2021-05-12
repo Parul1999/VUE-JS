@@ -1,29 +1,30 @@
+
 <template>
-    <div>
-        <i class="fa fa-circle fa-4x zoomIn text-primary"
-        v-if="iconname === 'circle'"
-        ></i>
-        <i class="fa fa-times fa-4x zoomIn text-info"
-        v-else-if="iconname === 'cross'"
-        ></i>
-        <img src="../assets/logo.png" alt="" 
-        class="img-fluid zoomIn"
-        v-else-if="iconname === 'empty'"
-         />
-    </div>
+<div>
+<i class="fa fa-circle fa-4x zoomIn text-primary"
+v-if="iconname==='circle'"
+></i>
+<i class="fa fa-times fa-4x zoomIn text-info"
+v-else-if="iconname==='cross'"
+></i>
+<img class="img-fluid zoomIn" 
+src="../assets/logo.png"
+v-else-if="iconname==='empty'"
+/>
+</div>
 </template>
 
 <script>
-export default {
-    props: {
-        iconname:{
-            type: String,
-            required: true
-        }
+export default{
+  name:'Icon',
+  props:{
+    iconname:{
+      type:String,
+      required:true
     }
+  }
 }
 </script>
-
 
 <style>
 img {
