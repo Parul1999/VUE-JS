@@ -1,5 +1,7 @@
 <template>
+<main>
 <h2>Movie App</h2>
+</main>
 </template>
 <script>
 export default {
