@@ -211,11 +211,11 @@ export default{
     {
  Swal.fire({
       title:"Enter Players Name's",
-      html:'<input id="player1" class="swal2-input" placeholder="Enter the Name of Player1(cross) ">' +
+      html:'<input id="player1" class="swal2-input" placeholder="Enter the Name of Player1(cross)">' +
       '<input id="player2" class="swal2-input" placeholder="Enter the Name of Player2(circle)">',
       preConfirm:()=>{
-        this.player1 = document.getElementById('player1').value;
-     this.player2 = document.getElementById('player2').value;
+        this.player1 = document.getElementById('player1').value || "Player 1";
+     this.player2 = document.getElementById('player2').value ||"Player 2";
       }
     })
     
