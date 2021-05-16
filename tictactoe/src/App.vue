@@ -7,10 +7,10 @@ class="d-flex flex-column justify-content-center align-items-center bg-dark">
 <div class="text-center">
 <div v-if="!winMessage">
 <h1 class="text-info" v-show="isCross">
-Cross Turn
+{{player1}} Turn
 </h1>
 <h1 class="text-info" v-show="!isCross">
-Circle Turn
+{{player2}} Turn
 </h1>
 </div>
 <div v-else>
@@ -51,7 +51,9 @@ export default{
     return{
       winMessage:"",
       isCross:true,
-      itemArray: new Array(9).fill("empty")
+      itemArray: new Array(9).fill("empty"),
+      player1:"",
+      player2:"",
     }
   },
   watch:{winMessage:function(message){
@@ -92,49 +94,105 @@ export default{
         this.itemArray[0] === this.itemArray[2] &&
         this.itemArray[0] !== "empty"
       ) {
-        this.winMessage = `${this.itemArray[0]} won`;
+        if(this.itemArray[0]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[3] !== "empty" &&
         this.itemArray[3] === this.itemArray[4] &&
         this.itemArray[4] === this.itemArray[5]
       ) {
-        this.winMessage = `${this.itemArray[3]} won`;
+         if(this.itemArray[3]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[6] !== "empty" &&
         this.itemArray[6] === this.itemArray[7] &&
         this.itemArray[7] === this.itemArray[8]
       ) {
-        this.winMessage = `${this.itemArray[6]} won`;
+         if(this.itemArray[6]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[0] !== "empty" &&
         this.itemArray[0] === this.itemArray[3] &&
         this.itemArray[3] === this.itemArray[6]
       ) {
-        this.winMessage = `${this.itemArray[0]} won`;
+         if(this.itemArray[0]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[1] !== "empty" &&
         this.itemArray[1] === this.itemArray[4] &&
         this.itemArray[4] === this.itemArray[7]
       ) {
-        this.winMessage = `${this.itemArray[1]} won`;
+         if(this.itemArray[1]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[2] !== "empty" &&
         this.itemArray[2] === this.itemArray[5] &&
         this.itemArray[5] === this.itemArray[8]
       ) {
-        this.winMessage = `${this.itemArray[2]} won`;
+         if(this.itemArray[2]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[0] !== "empty" &&
         this.itemArray[0] === this.itemArray[4] &&
         this.itemArray[4] === this.itemArray[8]
       ) {
-        this.winMessage = `${this.itemArray[0]} won`;
+         if(this.itemArray[0]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       } else if (
         this.itemArray[2] !== "empty" &&
         this.itemArray[2] === this.itemArray[4] &&
         this.itemArray[4] === this.itemArray[6]
       ) {
-        this.winMessage = `${this.itemArray[2]} won`;
+         if(this.itemArray[2]=="cross")
+        {
+        this.winMessage = `${this.player1} won`;
+        }
+        else
+        {
+          this.winMessage = `${this.player2} won`;
+        }
       }
       else if(this.itemArray[0]!=="empty" && 
       this.itemArray[1]!=="empty" && 
@@ -149,12 +207,31 @@ export default{
         this.winMessage="It's a Tie. Play once More"
       }
     },
+    enterplayerName()
+    {
+ Swal.fire({
+      title:"Enter Players Name's",
+      html:'<input id="player1" class="swal2-input" placeholder="Enter the Name of Player1(cross) ">' +
+      '<input id="player2" class="swal2-input" placeholder="Enter the Name of Player2(circle)">',
+      preConfirm:()=>{
+        this.player1 = document.getElementById('player1').value;
+     this.player2 = document.getElementById('player2').value;
+      }
+    })
+    
+    },
     reloadGame(){
       this.winMessage="",
       this.isCross=true,
-      this.itemArray= new Array(9).fill("empty")
+      this.itemArray= new Array(9).fill("empty"),
+       this.player1="",
+      this.player2="",
+       this.enterplayerName()
     }
-  }
+  },
+   mounted() {
+   this.enterplayerName()
+  },
 }
 </script>
 
