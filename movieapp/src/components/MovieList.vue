@@ -4,12 +4,16 @@
         <div class="card text-center">
             <div class="card-body row">
                 <div class="col-8 d-flex justify-content-center flex-column">
-                    <h4 class="card-title">
+                    <h5 class="card-subtitle mb-1">
                         {{movie.name}}
-                    </h4>
+                    </h5>
+                    <h6 v-if="movie.watchMovieDate!=''" class=" text-secondary">
+                        Watch on : {{movie.watchMovieDate}}
+                    </h6>
                     <p class="card-subtitle mb-2 text-muted">
                        Added on {{formatedDate(movie.date)}}
                     </p>
+                   <Rate :movieRating="movie.movieRating"></Rate>
                 </div>
                 <div class="col col-4">
                     <a :href="movie.url"
@@ -30,15 +34,20 @@
 </template>
 <script>
 import moment from "moment"
+import Rate from './Rate'
 export default {
    name:"MovieList" ,
    //movies is a list , deletemovie is a method
    props:["movies","deleteMovie"],
+ 
    methods:{
        formatedDate: function(date)
        {
            return moment(date).format("DD/MM/YYYY [at] hh:mm a");
        }
+   },
+   components:{
+       Rate
    }
 }
 </script>

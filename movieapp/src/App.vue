@@ -1,12 +1,13 @@
 <template>
 <main>
-  <Header title="Movie App"></Header>
+ <Header title="Movie App"/>
   <div class="container mt-3">
     <div class="row">
       <div class="offset-md-3 col-lg-6 p-2">
         <div class="card card-body mb-2">
           <Form :addMovie="addMovie"></Form>
         </div>
+        <!-- can write MovieList as movie-list , dash before the next uppercase letter -->
         <movie-list :movies="movies" :deleteMovie="deleteMovie"></movie-list>
       </div>
     </div>
@@ -14,10 +15,10 @@
 </main>
 </template>
 <script>
-import Header from './layout/Header'
+
 import Form from './components/MovieForm'
 import MovieList from './components/MovieList'
-
+import Header from './layout/Header'
 export default {
   name:'App',
   components:{
@@ -65,9 +66,7 @@ export default {
   box-sizing: border-box;
 }
 main {
-  background-image: url("./assets/bgc.jpg");
-  background-position: center;
-  background-size: cover;
+  background-color: white;
   min-height: 100vh;
 }
 </style>
