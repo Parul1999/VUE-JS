@@ -3,8 +3,7 @@
 <i 
 v-for="(star,index) in maxStars"
 :class="index>rating?unselectedColor:selectedColor"
-@click="setRating(index)"
-
+@click="setRating(index),addMovieRating(this.movie.id,index)"
 :key="star"
 ></i>
 </div>
@@ -15,24 +14,24 @@ v-for="(star,index) in maxStars"
 
 export default {
   name: 'Rate',
-   props:["movieRating"],
+   props:["movie","addMovieRating"],
   data(){
     return{
-      rating:this.movieRating,
+      rating:this.movie.movieRating,
       maxStars:5,
       selectedColor:"fa fa-star text-warning ",
-      unselectedColor:"fa fa-star "
+      unselectedColor:"fa fa-star ",
+      id:this.movie.id
     }
   },
   methods:{
     setRating(rating)
     {
       this.rating = rating
-      // this.movieRating=rating
-    }
+    },
   },
   mounted() {
-    this.rating=this.movieRating
+    this.rating=this.movie.movieRating
   },
   
 }

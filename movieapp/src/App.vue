@@ -8,7 +8,7 @@
           <Form :addMovie="addMovie"></Form>
         </div>
         <!-- can write MovieList as movie-list , dash before the next uppercase letter -->
-        <movie-list :movies="movies" :deleteMovie="deleteMovie"></movie-list>
+        <movie-list :movies="movies" :deleteMovie="deleteMovie" :addMovieRating="addMovieRating"></movie-list>
       </div>
     </div>
   </div>
@@ -42,6 +42,17 @@ export default {
       const index = this.movies.findIndex(movie => movie.id===id);
       this.movies.splice(index,1);
       localStorage.setItem("@movies",JSON.stringify(this.movies))
+    },
+    addMovieRating: function(id,rating)
+    {
+      // to get the movies
+    const localStorageGetMovies =JSON.parse(localStorage.getItem("@movies"))
+    //find the index of the movie, where rating is to be changed
+    const index = localStorageGetMovies.findIndex(movie => movie.id===id);
+    //update the rating
+    localStorageGetMovies[index].movieRating = rating
+	// Save back to localStorage
+	localStorage.setItem("@movies", JSON.stringify(localStorageGetMovies));
     }
   },
     mounted() {

@@ -13,7 +13,7 @@
                     <p class="card-subtitle mb-2 text-muted">
                        Added on {{formatedDate(movie.date)}}
                     </p>
-                   <Rate :movieRating="movie.movieRating"></Rate>
+                   <Rate :movie="movie"  :addMovieRating="addMovieRating" />
                 </div>
                 <div class="col col-4">
                     <a :href="movie.url"
@@ -38,7 +38,7 @@ import Rate from './Rate'
 export default {
    name:"MovieList" ,
    //movies is a list , deletemovie is a method
-   props:["movies","deleteMovie"],
+   props:["movies","deleteMovie","addMovieRating"],
  
    methods:{
        formatedDate: function(date)
