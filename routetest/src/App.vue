@@ -1,10 +1,27 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link :to="{path:'/account/12'}">Account</router-link>
+      <router-view/>
   </div>
-  <router-view/>
+
+
 </template>
+
+<script>
+export default{
+data(){
+  return{
+  course:{
+name:"React",
+Id:1224
+  }
+  }
+}
+}
+</script>
+
 
 <style>
 #app {
