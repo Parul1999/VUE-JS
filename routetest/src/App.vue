@@ -2,7 +2,10 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link :to="{path:'/account/12'}">Account</router-link>
+    <!-- Here we can use js  -->
+    <router-link :to="{path:`/account/${course.id}`,query:{token:'123'}}">Account</router-link> |
+    <!-- Syntax 3 -->
+    <router-link :to="`/account/${course.id2}`">Account Syntax 2</router-link>
       <router-view/>
   </div>
 
@@ -15,7 +18,8 @@ data(){
   return{
   course:{
 name:"React",
-Id:1224
+id:1224,
+id2:1334
   }
   }
 }
